@@ -1,14 +1,13 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * interface principale de l'application
  */
-package gomageotoolsjava;
+package cd.syna.geotools.main;
 
 /**
  *
  * @author Mishka
  */
-public class GomaGeoToolsJava {
+public class Main {
 
     /**
      * @param args the command line arguments
