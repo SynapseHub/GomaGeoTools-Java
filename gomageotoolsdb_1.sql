@@ -1,35 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 3.4.5
--- http://www.phpmyadmin.net
--- emulateur android : 10.0.2.2
--- port : 8080
--- Client: 127.0.0.1
--- Généré le : Lundi 27 Mai 2013 à 10:42
--- Version du serveur: 5.5.16
--- Version de PHP: 5.3.8
-
--- yasmineROOT777
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+CREATE DATABASE smartgeotoolsdb;
 
---
--- Base de données: `mobidb`
---
+use smartgeotoolsdb;
 
-CREATE DATABASE mobidatabase;
 
-use mobidatabase;
-
-- --------------------------------------------------------
---
--- Structure de la table `ZONE_GEO`
---
 CREATE TABLE IF NOT EXISTS `zone_geo` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `zoneGeoId` int(11) NOT NULL UNIQUE,
@@ -43,6 +19,8 @@ CREATE TABLE IF NOT EXISTS `zone_geo` (
  CONSTRAINT UNIQUE(`zoneGeoId`)
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
+LOCK TABLES `zone_geo` WRITE;
+
 insert into zone_geo(`zoneGeoId`,`nameZoneGeo`,`descZoneGeo`,`etenduZoneGeo`,`latzone`,`lngzone`) values(1,"Nord-Kivu","Au bord du lac kivu, a cote du volcan nyiragongo","1245Km2",-1.654586,29.220371);
 insert into zone_geo(`zoneGeoId`,`nameZoneGeo`,`descZoneGeo`,`etenduZoneGeo`,`latzone`,`lngzone`) values(2,"Sud-Kivu","Au bord du lac kivu, zone montagneuse","1845Km2",-2.510259,28.844948);
 insert into zone_geo(`zoneGeoId`,`nameZoneGeo`,`descZoneGeo`,`etenduZoneGeo`,`latzone`,`lngzone`) values(3,"Maniema","Ville enclaver entre le Sud-Kivu, Nord-kivu et Katanga et riche en minerais","1845Km2",-2.948698,25.950222);
@@ -55,9 +33,9 @@ insert into zone_geo(`zoneGeoId`,`nameZoneGeo`,`descZoneGeo`,`etenduZoneGeo`,`la
 insert into zone_geo(`zoneGeoId`,`nameZoneGeo`,`descZoneGeo`,`etenduZoneGeo`,`latzone`,`lngzone`) values(10,"Province Orientale","au bord du lac kivu, a cote du volcan nyiragongo","1845Km2",0.520642,25.196114);
 insert into zone_geo(`zoneGeoId`,`nameZoneGeo`,`descZoneGeo`,`etenduZoneGeo`,`latzone`,`lngzone`) values(11,"Katanga","au bord du lac kivu, a cote du volcan nyiragongo","1845Km2",-11.649546,27.479553);
 
--- CREATION DE LA TABLE `CITY`
--- 	`kml_file` object,
---
+UNLOCK TABLES;
+
+
 CREATE TABLE IF NOT EXISTS `city` (
         `_id` int(11) NOT NULL AUTO_INCREMENT,
 	`idcity` int(11) not null unique,
@@ -74,7 +52,8 @@ CREATE TABLE IF NOT EXISTS `city` (
 		ON UPDATE NO ACTION ON DELETE NO ACTION
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
---Insertion des villes
+
+LOCK TABLES `city` WRITE;
 
 insert into city(`idcity`,`idzone`,`namecity`,`desccity`,`latcity`,`lngcity`,`altcity`,`cityurlimage`) 
      values(1,1,"Goma","Ville au bord du lac kivu et sur le flanc du Nyiragongo",-1.654586,29.220371, 1678,"http://192.168.56.1:8080/mobitours/images/test0.jpg");
@@ -95,10 +74,8 @@ insert into city(`idcity`,`idzone`,`namecity`,`desccity`,`latcity`,`lngcity`,`al
 insert into city(`idcity`,`idzone`,`namecity`,`desccity`,`latcity`,`lngcity`,`altcity`,`cityurlimage`)  
      values(9,1,"Rumangabo","desc desc desc desc",-1.357663,29.369063, 1678,null);
 
--- --------------------------------------------------------
---
--- Structure de la table `HOTEL`
---
+UNLOCK TABLES;
+
 CREATE TABLE IF NOT EXISTS `hotel` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `pointofinterestid` int(11) NOT NULL,
@@ -124,6 +101,8 @@ CREATE TABLE IF NOT EXISTS `hotel` (
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
 
+LOCK TABLES `hotel` WRITE;
+
 insert into hotel(`pointofinterestid`,`idcity`,`title`,`type`,`url`,`latitude`,`longitude`,`adresse`,`deschotel`,`star`,`nbroom`,`roompricemin`,`roompricemax`,`mail`,`pictureurl`,`nbroomdispo`) values
         (1,1,"Grands Lacs Hotel","hotel","www.grandslacshotel.com",-1.690314,29.238444,"Bld Kanyamunga, ville","One of old goma's hotels","2",50,65,200,"","http://192.168.56.1:8080/mobitours/images/goma.jpg",12);
 insert into hotel(`pointofinterestid`,`idcity`,`title`,`type`,`url`,`latitude`,`longitude`,`adresse`,`deschotel`,`star`,`nbroom`,`roompricemin`,`roompricemax`,`mail`,`pictureurl`,`nbroomdispo`) values
@@ -140,10 +119,8 @@ insert into hotel(`pointofinterestid`,`idcity`,`title`,`type`,`url`,`latitude`,`
         (7,1,"Centre d\'acceuil Caritas","hotel","www.caritas.cd",-1.700056,29.242473,"Bld Kanyamunga, ville","just another for testing","4",40,25,125,"","",13);
 
 
--- --------------------------------------------------------
---
--- Structure de la table `RESTAURANT`
---
+UNLOCK TABLES;
+
 
 CREATE TABLE IF NOT EXISTS `restaurant` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -165,10 +142,7 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
 	ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
--- --------------------------------------------------------
---
--- Structure de la table `SITENATUREL`
---
+
 
 CREATE TABLE IF NOT EXISTS `sitenaturel` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -192,6 +166,8 @@ CREATE TABLE IF NOT EXISTS `sitenaturel` (
 	ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
+LOCK TABLES `sitenaturel` WRITE;
+
 insert into sitenaturel(`_id`,`idsite`,`idcity`,`title`,`type`,`area`,`sitedesc`,`latitude`,`longitude`,`attractourist`,
         `largeur`,`longueur`,`security`,`visitorperan`,`site_url_image`) 
     values(1,1,1,"Parc National des Virunga","Parc","","",-0.383333,29.5,"Un des plus vieux parcs",0,0,"N",255,null);
@@ -205,10 +181,7 @@ insert into sitenaturel(`_id`,`idsite`,`idcity`,`title`,`type`,`area`,`sitedesc`
         `largeur`,`longueur`,`security`,`visitorperan`,`site_url_image`) 
     values(4,4,1,"Sabyinyo","Site","","",-1.388,29.592,"Un des volcans actifs",0,0,"Y",1545,null);
 
--- --------------------------------------------------------
---
--- Structure de la table `BOOKING`
---
+unlock TABLES;
 
 CREATE TABLE IF NOT EXISTS `booking` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -267,10 +240,7 @@ CREATE TABLE IF NOT EXISTS `courtier` (
   
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
--- --------------------------------------------------------
---
--- Structure de la table `user`
---
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `userid` int(11) not null ,
@@ -291,11 +261,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT user_pk PRIMARY KEY (`userid`)
 ) ENGINE = MYISAM ;
 
--- Quelques insertions des utilisateurs
+LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (1,'admin', 'root', 'admin','misamuna@gmail.com','M','Isamuna','Michel','www.mobitours.com','Goma','DRC','Cosys.cd','0811704141','software developer','abc2319yasm88');
 INSERT INTO `users` VALUES (2,'michel','yann2013','user','misamuna@wwfcarpo.org','M','Isamuna','Michel','www.mobitours.com','Goma','DRC','Cosys.cd','0811704141','software developer','nicor76hsh');
 INSERT INTO `users` VALUES (3,'visitor','visitor0','user','misamuna@wwfcarpo.org','M','Isamuna','Michel','www.mobitours.com','Goma','DRC','Cosys.cd','0811704141','software developer','yauie0746g');
-
+unlock TABLES;
 
 CREATE TABLE IF NOT EXISTS `comments` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -306,7 +276,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `text` varchar(200) NOT NULL default '',
   `date` int(11),
   PRIMARY KEY (`_id`),
-  --CONSTRAINT UNIQUE (`commentid`),
   CONSTRAINT user_id_fk FOREIGN KEY(`userid`) REFERENCES users(`userid`)
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
@@ -322,6 +291,8 @@ CREATE TABLE IF NOT EXISTS `rating` (
   CONSTRAINT user_rat_id_fk FOREIGN KEY(`userid`) REFERENCES users(`userid`)
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
+
+LOCK TABLES `rating` WRITE;
 insert into rating(`userid`,`pointofinterestid`,`idsite`,`rating`,`date`)
             values(1,1,"",5,"");
 insert into rating(`userid`,`pointofinterestid`,`idsite`,`rating`,`date`)
@@ -366,6 +337,8 @@ insert into rating(`userid`,`pointofinterestid`,`idsite`,`rating`,`date`)
 insert into rating(`userid`,`pointofinterestid`,`idsite`,`rating`,`date`)
             values(1,"",4,1,"");
 
+UNLOCK TABLES;
+
 CREATE TABLE IF NOT EXISTS `datatype` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `dataid` int(11) NOT NULL,
@@ -382,10 +355,13 @@ CREATE TABLE IF NOT EXISTS `types` (
   CONSTRAINT UNIQUE (`typeid`)
 ) ENGINE = MYISAM DEFAULT charset=utf8 AUTO_INCREMENT=1;
 
+
+LOCK TABLES `datatype` WRITE;
 insert into datatype(`dataid`,`titletype`) values(1,'hotel');
 insert into datatype(`dataid`,`titletype`) values(2,'restaurant');
 insert into datatype(`dataid`,`titletype`) values(3,'others');
-
+UNLOCK TABLES;
+LOCK TABLES `types` WRITE;
 insert into types(`typeid`,`type`) values(1,'Hotel');
 insert into types(`typeid`,`type`) values(2,'Restaurant');
 insert into types(`typeid`,`type`) values(3,'Nature');
@@ -396,11 +372,8 @@ insert into types(`typeid`,`type`) values(7,'Pharmacies');
 insert into types(`typeid`,`type`) values(8,'Hospital');
 insert into types(`typeid`,`type`) values(9,'Shopping');
 insert into types(`typeid`,`type`) values(10,'schools');
--- -----------------------------------------------------------------------
---
--- TEST FOR INSERTING AN IMAGE IN MYSQL
--- name varchar(25) not null default '',
---
+UNLOCK TABLES;
+
 create table `image` (
     `id` int(11)  not null AUTO_INCREMENT,
     `pointofinterestid` int(11) not null,
