@@ -8,23 +8,17 @@
 -- Version du serveur: 5.5.16
 -- Version de PHP: 5.3.8
 
--- yasmineROOT777
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `mobidb`
+-- Base de données: `smartgeotoolsdb`
 --
 
-CREATE DATABASE mobidatabase;
+CREATE DATABASE smartgeotoolsdb;
 
-use mobidatabase;
+use smartgeotoolsdb;
 
 - --------------------------------------------------------
 --
