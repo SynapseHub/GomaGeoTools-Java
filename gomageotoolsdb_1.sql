@@ -5,7 +5,6 @@ CREATE DATABASE smartgeotoolsdb;
 
 use smartgeotoolsdb;
 
-
 CREATE TABLE IF NOT EXISTS `zone_geo` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `zoneGeoId` int(11) NOT NULL UNIQUE,
@@ -269,11 +268,10 @@ unlock TABLES;
 
 CREATE TABLE IF NOT EXISTS `comments` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
-  --`commentid` int(11) NOT NULL ,
   `userid` int(11),
   `pointofinterestid` int(11),
   `idsite` int(11),
-  `text` varchar(200) NOT NULL default '',
+  `text` varchar(200) NOT NULL,
   `date` int(11),
   PRIMARY KEY (`_id`),
   CONSTRAINT user_id_fk FOREIGN KEY(`userid`) REFERENCES users(`userid`)
@@ -305,7 +303,7 @@ insert into rating(`userid`,`pointofinterestid`,`idsite`,`rating`,`date`)
             values(1,3,"",4,"");
 insert into rating(`userid`,`pointofinterestid`,`idsite`,`rating`,`date`)
             values(1,4,"",2,"");
---Concernant les sites naturels
+
 insert into rating(`userid`,`pointofinterestid`,`idsite`,`rating`,`date`)
             values(1,"",1,4,"");
 insert into rating(`userid`,`pointofinterestid`,`idsite`,`rating`,`date`)
