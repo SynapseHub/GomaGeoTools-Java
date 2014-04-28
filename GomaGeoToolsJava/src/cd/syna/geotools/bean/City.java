@@ -24,8 +24,9 @@ public class City {
     public City(){
         //null constructor
     }
-    public City(int idcity,String namecity,String descity,float latcity, float lngcity){
+    public City(int idcity,int idzone,String namecity,String descity,float latcity, float lngcity){
         this.idcity=idcity;
+        this.idzone=idzone;
         this.namecity=namecity;
         this.desccity=descity;
         this.latcity=latcity;

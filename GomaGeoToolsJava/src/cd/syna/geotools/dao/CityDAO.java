@@ -31,6 +31,7 @@ public class CityDAO extends AbstractDAO<City>{
     public boolean add(City obj) {
         boolean b=false;
         try{
+            //requête sql d'insertion des données
             int valeur=con.createStatement().executeUpdate("INSER INTO city VALUES "
                     + " ('" + obj.getIdcity() + "','" + obj.getIdzone() + "','" + obj.getNamecity() + "',"
                     + "'" + obj.getDesccity() + "', '" + obj.getLatcity() + "','" + obj.getLngcity() + "')"
@@ -56,17 +57,20 @@ public class CityDAO extends AbstractDAO<City>{
     }
 
     @Override
-    public City findById(String c) {
+    public City findById(int c) {
         City city=null;
         
         try{
             ResultSet result=this.con.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * "
-                    + " FROM city WHERE idcity='" + c + "'");
+                    + " FROM city WHERE idcity=" + c + "");
+            // Au cas ou il s'agit d'un String on utilisera cette forme ci
+            //+ " FROM city WHERE idcity='" + c + "'");
             
             if (result.first()){
-               // city=new City(result.getString(1),result.getString(2));
+               city=new City(result.getInt(1),result.getInt(2),result.getString(3),
+                        result.getString(4),result.getFloat(5),result.getFloat(6));
             }
         }catch(SQLException es){
             es.printStackTrace();
@@ -82,7 +86,22 @@ public class CityDAO extends AbstractDAO<City>{
 
     @Override
     public ArrayList<City> readAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<City> data=new ArrayList<>();
+        try{
+            ResultSet result=this.con.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM "
+                    + " city ORDER by namecity");
+            while (result.next()){
+                data.add(new City(result.getInt(1),result.getInt(2),result.getString(3),
+                        result.getString(4),result.getFloat(5),result.getFloat(6)));
+            }
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return data;
     }
 
     @Override
@@ -91,7 +110,29 @@ public class CityDAO extends AbstractDAO<City>{
     }
 
     @Override
+    public boolean delete(int c) {
+        boolean r=false;
+        try{
+            int v=con.createStatement().executeUpdate("DELETE "
+                + " FROM city WHERE idcity="+ c +"");
+            if(v==1){
+                r=true;
+            }else{
+                r=false;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return r;
+    }
+    
+    @Override
     public boolean delete(String c) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public City findById(String c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

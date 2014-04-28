@@ -10,7 +10,13 @@ import java.sql.DriverManager;
  */
 public class Connexion {
     
-    //Déclaration des variables pour stocker les informations de connexions à la base des données
+    /**
+     * Déclaration des variables pour stocker les informations de connexions à la base des données
+     * le port 8889 peut être changé selon votre configuration
+     * 3306 : MySQL
+     * 8889 : MAMP
+     * Le mot de passe aussi dépend de la configuration de votre serveur
+    */
     private final String PROPERTY_URL="jdbc:mysql://localhost:8889/smartgeotoolsdb";
     private final String PROPERTY_USER="root";
     private final String PROPERTY_DRIVER="com.mysql.jdbc.Driver";
