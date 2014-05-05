@@ -4,7 +4,7 @@ package cd.syna.geotools.bean;
  *
  * @author KeeG Ekamus pro
  */
-public class sitenaturel {
+public class SiteNaturel {
     private int idsite;
     private int idcity;
     private String title;
@@ -20,9 +20,10 @@ public class sitenaturel {
     private int visitorperan;
     private String site_url_image;
     
-    public sitenaturel(){    
+    public SiteNaturel(){    
+        //Constructeur Null
     }
-    public sitenaturel(int idsite, int idcity, String title, String type, float area, String sitedesc, float latitude, float longitude, String attracttourist, float largeur, float longueur, String security, int visitorperan, String site_url_image){
+    public SiteNaturel(int idsite, int idcity, String title, String type, float area, String sitedesc, float latitude, float longitude, String attracttourist, float largeur, float longueur, String security, int visitorperan, String site_url_image){
     this.idsite=idsite;
     this.idcity=idcity;
     this.title=title;
@@ -38,7 +39,7 @@ public class sitenaturel {
     this.site_url_image=site_url_image;
     }
     // retourne longitude et latitude de la site naturelle
-    public sitenaturel(float latitude, float longitude){
+    public SiteNaturel(float latitude, float longitude){
         this.latitude=latitude;
         this.longitude=longitude;
     }

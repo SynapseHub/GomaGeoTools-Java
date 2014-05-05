@@ -4,7 +4,7 @@ package cd.syna.geotools.bean;
  *
  * @author KeeG Emerykamus pro
  */
-public class restaurant {
+public class Restaurant {
     private int pointofinterestid;
     private int idcity;
     private String title;
@@ -17,9 +17,11 @@ public class restaurant {
     private String mealprice;
     private String pictureurl;
     
-    public restaurant(){    
+    public Restaurant(){    
+        //constructeur null
     }
-    public restaurant(int pointofinterestid, int idcity, String title, String url, String description, String mealofday, String mealprice, String pictureurl){
+    
+    public Restaurant(int pointofinterestid, int idcity, String title, String url, String description, String mealofday, String mealprice, String pictureurl){
     this.pointofinterestid=pointofinterestid;
     this.idcity=idcity;
     this.title=title;
@@ -33,7 +35,7 @@ public class restaurant {
     this.classification=classification;
     }
     // retourne longitude et latitude du restaurant
-    public restaurant(float latitude, float longitude){
+    public Restaurant(float latitude, float longitude){
         this.latitude=latitude;
         this.longitude=longitude;
     }
