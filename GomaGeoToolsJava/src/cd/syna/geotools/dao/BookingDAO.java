@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author user
+ * @author mishka
  */
 public class BookingDAO extends AbstractDAO<Booking>{
 
