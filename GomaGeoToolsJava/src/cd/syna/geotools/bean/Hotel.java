@@ -4,7 +4,7 @@ package cd.syna.geotools.bean;
  *
  * @author Josue
  */
-public class classhotel {
+public class Hotel {
     private int id;
     private  int pointofinterestid;
     private int idcity;
@@ -26,10 +26,10 @@ public class classhotel {
              
     
 
-public classhotel  (){
+public Hotel  (){
         //null constructor
     }
-public classhotel (int id,int pointofinterestid,int idcity,String title,String type,String url,float latitude, float longitude, String adresse,
+public Hotel (int id,int pointofinterestid,int idcity,String title,String type,String url,float latitude, float longitude, String adresse,
 String deshotel,int star,int nbroom,int nbroomdispo,float roompricemin,float roompricemax,String mail,String pictureurl  ){
         this.id=id;
         this.pointofinterestid=pointofinterestid;
@@ -50,7 +50,7 @@ String deshotel,int star,int nbroom,int nbroomdispo,float roompricemin,float roo
         this.star=star;
         
     }
- public classhotel (float latitude,float longitude){
+ public Hotel (float latitude,float longitude){
         this.latitude=latitude;
         this.longitude=longitude;
     }

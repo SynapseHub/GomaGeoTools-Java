@@ -6,6 +6,7 @@
 
 package cd.syna.geotools.ihms;
 
+import cd.syna.geotools.main.SplashScreen;
 import cd.syna.geotools.utils.MySwingUtilities;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -114,9 +115,9 @@ public class MainForm extends javax.swing.JFrame {
     }
     
     void MapPrevisualization(){
-        MySwingUtilities.setContentPane(main_panel, mappanel);
-        
-        hynewcity.setEnabled(false);
+        MySwingUtilities.setContentPane(main_panel, new MapControlPanel());
+       // hynewcity.setEnabled(false);
+        hynewcity.setEnabled(true);
     }
     
     
