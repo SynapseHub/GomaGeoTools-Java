@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
  * @author mishka
  */
 public class BookingDAO extends AbstractDAO<Booking>{
