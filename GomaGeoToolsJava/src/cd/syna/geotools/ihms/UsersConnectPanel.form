@@ -25,11 +25,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="241" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="174" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
       </Group>
@@ -56,7 +56,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/cd/syna/geotools/utils/login_icon.png"/>
+          <Image iconType="3" name="/cd/syna/geotools/res/login_icon.png"/>
         </Property>
       </Properties>
     </Component>
@@ -156,7 +156,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/cd/syna/geotools/utils/Arrow-refresh-icon.png"/>
+                  <Image iconType="3" name="/cd/syna/geotools/res/Arrow-refresh-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Connecter"/>
               </Properties>
@@ -170,7 +170,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/cd/syna/geotools/utils/System-Security-Firewall-OFF-icon.png"/>
+                  <Image iconType="3" name="/cd/syna/geotools/res/System-Security-Firewall-OFF-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Annuler"/>
               </Properties>

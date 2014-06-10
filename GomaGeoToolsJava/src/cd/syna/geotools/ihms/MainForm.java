@@ -115,7 +115,7 @@ public class MainForm extends javax.swing.JFrame {
     }
     
     void MapPrevisualization(){
-        MySwingUtilities.setContentPane(main_panel, new MapControlPanel());
+        MySwingUtilities.setContentPane(main_panel, new UsersConnectPanel());
        // hynewcity.setEnabled(false);
         hynewcity.setEnabled(true);
     }

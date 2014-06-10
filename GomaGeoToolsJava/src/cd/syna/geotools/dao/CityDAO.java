@@ -32,7 +32,7 @@ public class CityDAO extends AbstractDAO<City>{
         boolean b=false;
         try{
             //requête sql d'insertion des données
-            int valeur=con.createStatement().executeUpdate("INSER INTO city VALUES "
+            int valeur=con.createStatement().executeUpdate("INSERT INTO city VALUES "
                     + " ('" + obj.getIdcity() + "','" + obj.getIdzone() + "','" + obj.getNamecity() + "',"
                     + "'" + obj.getDesccity() + "', '" + obj.getLatcity() + "','" + obj.getLngcity() + "')"
             );

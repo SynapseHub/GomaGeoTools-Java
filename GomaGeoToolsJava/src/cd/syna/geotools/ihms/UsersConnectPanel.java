@@ -45,7 +45,7 @@ public class UsersConnectPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(51, 51, 51));
         setPreferredSize(new java.awt.Dimension(721, 300));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cd/syna/geotools/utils/login_icon.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cd/syna/geotools/res/login_icon.png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -53,12 +53,12 @@ public class UsersConnectPanel extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cd/syna/geotools/utils/Arrow-refresh-icon.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cd/syna/geotools/res/Arrow-refresh-icon.png"))); // NOI18N
         jButton1.setText("Connecter");
 
         jButton2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cd/syna/geotools/utils/System-Security-Firewall-OFF-icon.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cd/syna/geotools/res/System-Security-Firewall-OFF-icon.png"))); // NOI18N
         jButton2.setText("Annuler");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -159,11 +159,11 @@ public class UsersConnectPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
