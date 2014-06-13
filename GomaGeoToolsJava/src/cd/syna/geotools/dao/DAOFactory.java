@@ -29,6 +29,14 @@ public class DAOFactory {
         return new BookingDAO(con);
     }
     
+    public static AbstractDAO getRestaurant(){
+        return new RestaurantDAO(con);
+    }
+    
+    public static AbstractDAO getSiteNaturel(){
+        return new SiteNaturelDAO(con);
+    }
+    
     
     
 }
