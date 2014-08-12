@@ -16,6 +16,7 @@ public class City {
     private String namecity;
     private String desccity;
     private float latcity;
+    private int altcity;
     private float lngcity;
     private String cityurlimage;
     
@@ -24,13 +25,14 @@ public class City {
     public City(){
         //null constructor
     }
-    public City(int idcity,int idzone,String namecity,String descity,float latcity, float lngcity){
+    public City(int idcity,int idzone,String namecity,String descity,float latcity, float lngcity,int altcity){
         this.idcity=idcity;
         this.idzone=idzone;
         this.namecity=namecity;
         this.desccity=descity;
         this.latcity=latcity;
         this.lngcity=lngcity;
+        this.altcity = altcity;
     }
     public City(float latcity,float lngcity){
         this.latcity=latcity;
@@ -134,11 +136,24 @@ public class City {
     public void setCityurlimage(String cityurlimage) {
         this.cityurlimage = cityurlimage;
     }
+     /**
+     * *@param altcity the altercity to set
+     */
+    public void setaltcity(int altcity){
+    this.altcity = altcity;
+    }
+    /**
+     * 
+     * @return the altcity
+     */
+    public int getaltcity(){
+    return altcity;
+    }
     
     public Vector<City> getCityList(){
         return cityList;
     }
-    
+   
     
     
 }

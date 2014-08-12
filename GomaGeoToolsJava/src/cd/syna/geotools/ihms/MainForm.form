@@ -76,19 +76,26 @@
             <Component class="org.jdesktop.swingx.JXTaskPane" name="jXtmapcontrol">
               <Properties>
                 <Property name="name" type="java.lang.String" value="jxtaskpMapControl" noResource="true"/>
-                <Property name="title" type="java.lang.String" value="Map Control &amp; Navigation"/>
               </Properties>
             </Component>
             <Component class="org.jdesktop.swingx.JXTaskPane" name="jXt_navigation">
               <Properties>
                 <Property name="name" type="java.lang.String" value="jxtaskpNavigation" noResource="true"/>
-                <Property name="title" type="java.lang.String" value="Current Navigation"/>
               </Properties>
             </Component>
             <Component class="org.jdesktop.swingx.JXTaskPane" name="jXtAdmin">
               <Properties>
                 <Property name="name" type="java.lang.String" value="jxtaskpAdmin" noResource="true"/>
-                <Property name="title" type="java.lang.String" value="Administration"/>
+              </Properties>
+            </Component>
+            <Component class="org.jdesktop.swingx.JXTaskPane" name="jXt">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jxtaskpAdmin" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="org.jdesktop.swingx.JXTaskPane" name="jXtAdmin2">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jxtaskpAdmin" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -183,9 +190,46 @@
                 </CodeExpression>
               </Parameters>
             </CodeStatement>
+            <CodeStatement>
+              <CodeExpression id="3_jXTaskPaneContainer1"/>
+              <StatementProvider type="CodeMethod">
+                <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
+              </StatementProvider>
+              <Parameters>
+                <CodeExpression id="7_jXt">
+                  <CodeVariable name="jXt" type="8194" declaredType="org.jdesktop.swingx.JXTaskPane"/>
+                  <ExpressionOrigin>
+                    <ExpressionProvider type="ComponentRef">
+                      <ComponentRef name="jXt"/>
+                    </ExpressionProvider>
+                  </ExpressionOrigin>
+                </CodeExpression>
+              </Parameters>
+            </CodeStatement>
+            <CodeStatement>
+              <CodeExpression id="3_jXTaskPaneContainer1"/>
+              <StatementProvider type="CodeMethod">
+                <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
+              </StatementProvider>
+              <Parameters>
+                <CodeExpression id="8_jXtAdmin2">
+                  <CodeVariable name="jXtAdmin2" type="8194" declaredType="org.jdesktop.swingx.JXTaskPane"/>
+                  <ExpressionOrigin>
+                    <ExpressionProvider type="ComponentRef">
+                      <ComponentRef name="jXtAdmin2"/>
+                    </ExpressionProvider>
+                  </ExpressionOrigin>
+                </CodeExpression>
+              </Parameters>
+            </CodeStatement>
           </LayoutCode>
         </Container>
         <Container class="javax.swing.JPanel" name="main_panel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">

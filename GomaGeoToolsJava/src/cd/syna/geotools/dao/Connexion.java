@@ -17,10 +17,10 @@ public class Connexion {
      * 8889 : MAMP
      * Le mot de passe aussi dépend de la configuration de votre serveur
     */
-    private final String PROPERTY_URL="jdbc:mysql://localhost:8889/smartgeotoolsdb";
+    private final String PROPERTY_URL="jdbc:mysql://localhost:3306/smartgeotoolsdb";
     private final String PROPERTY_USER="root";
     private final String PROPERTY_DRIVER="com.mysql.jdbc.Driver";
-    private final String PROPERTY_PWD="root";
+    private final String PROPERTY_PWD="";
     //Déclaration d'une variable de type Connection pour la chaine de connexion
     private static Connection connect;
     

@@ -33,8 +33,8 @@ public class CityDAO extends AbstractDAO<City>{
         try{
             //requête sql d'insertion des données
             int valeur=con.createStatement().executeUpdate("INSERT INTO city VALUES "
-                    + " ('" + obj.getIdcity() + "','" + obj.getIdzone() + "','" + obj.getNamecity() + "',"
-                    + "'" + obj.getDesccity() + "', '" + obj.getLatcity() + "','" + obj.getLngcity() + "')"
+                    + " ("+obj.getIdcity()+"," + obj.getIdcity() + "," + obj.getIdzone() + ",'" + obj.getNamecity() + "',"
+                    + "'" + obj.getDesccity() + "', " + obj.getLatcity() + "," + obj.getLngcity() + ","+obj.getaltcity()+",'"+obj.getCityurlimage()+"')"
             );
             //test if variable valeur has Values
             if(valeur==1){
@@ -70,7 +70,7 @@ public class CityDAO extends AbstractDAO<City>{
             
             if (result.first()){
                city=new City(result.getInt(1),result.getInt(2),result.getString(3),
-                        result.getString(4),result.getFloat(5),result.getFloat(6));
+                        result.getString(4),result.getFloat(5),result.getFloat(6),result.getInt(7));
             }
         }catch(SQLException es){
             es.printStackTrace();
@@ -94,7 +94,7 @@ public class CityDAO extends AbstractDAO<City>{
                     + " city ORDER by namecity");
             while (result.next()){
                 data.add(new City(result.getInt(1),result.getInt(2),result.getString(3),
-                        result.getString(4),result.getFloat(5),result.getFloat(6)));
+                        result.getString(4),result.getFloat(5),result.getFloat(6),result.getInt(7)));
             }
             
         }catch(SQLException e){

@@ -6,6 +6,7 @@
 
 package cd.syna.geotools.dao;
 
+import cd.syna.geotools.bean.Restaurant;
 import java.sql.Connection;
 
 /**
@@ -36,6 +37,8 @@ public class DAOFactory {
     public static AbstractDAO getSiteNaturel(){
         return new SiteNaturelDAO(con);
     }
+
+  
     
     
     

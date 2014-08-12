@@ -23,15 +23,17 @@ import org.jdesktop.swingx.JXHyperlink;
 public class MainForm extends javax.swing.JFrame {
 
     private JXHyperlink hynewcity, hynewrestaurant, hylogout,
-            hymapcontrol;
+            hymapcontrol,hyNewRating,hyNewComments, hyNewRestaurant, hyNewSiteNaturel;
     
     private MySwingUtilities mUtils=new MySwingUtilities();
     private SplashScreen welcomepanel;
-    private MapControlPanel mappanel;
+    private MapControl mappanel;
+    private Action new_rating_action;
     
     /** Creates new form MainForm */
     public MainForm() {
         initComponents();
+        setLocationRelativeTo(null);
         /** Initialisation de la frame */
         setTitle("SmartGeoTools 1.0");
         /** call the method for creating task pane */
@@ -43,15 +45,33 @@ public class MainForm extends javax.swing.JFrame {
     void createGeoToolsTaskPane(){
         /** HyperLink for cities */
         hynewcity=new JXHyperlink(new_city_action);
-        hynewcity.setText("Visualiser les cités");
+        hynewcity.setText("CITE");
         hynewcity.setIcon(new ImageIcon(getClass().getResource("/cd/syna/geotools/res/ecole.png")));
         jXt_navigation.add(hynewcity);
         /** HyperLink Logout */
-        hymapcontrol=new JXHyperlink();
-        hymapcontrol.setText("Afficher la Map");
+        hymapcontrol=new JXHyperlink(mapcontrol_action);
+        hymapcontrol.setText("AFFICHER LA MAP");
         hymapcontrol.setIcon(new ImageIcon(getClass().getResource("/cd/syna/geotools/res/search.png")));
         jXtmapcontrol.add(hymapcontrol);
         
+        /** rating */
+        hyNewRating=new JXHyperlink(new_rating_action);
+        hyNewRating.setText("RESERVATION");
+        hyNewRating.setIcon(new ImageIcon(getClass().getResource("/cd/syna/geotools/res/site touristique.png")));
+        jXt_navigation.add(hyNewRating);
+       // Hyperlink for Restaurant
+        hyNewRestaurant=new JXHyperlink(new_restaurant_action);
+        hyNewRestaurant.setText("RESTAURANTS");
+        hyNewRestaurant.setIcon(new ImageIcon(getClass().getResource("/cd/syna/geotools/res/restau.png")));
+        jXt_navigation.add(hyNewRestaurant);
+      // Hyperlink for Site Naturel
+       
+        hyNewSiteNaturel=new JXHyperlink(new_site_action);
+        hyNewSiteNaturel.setText("SITE NATUREL");
+        hyNewSiteNaturel.setIcon(new ImageIcon(getClass().getResource("/cd/syna/geotools/res/site touristique (2).png")));
+        jXt_navigation.add(hyNewSiteNaturel);
+        
+        /** 
     // ------------------------------------------------------------------------------------------------------------------    
         /** Permet de rendre les taskpane collapsable (si cela se dit en anglais... lol !!!) */
         jXt_navigation.setCollapsed(true);
@@ -92,17 +112,41 @@ public class MainForm extends javax.swing.JFrame {
         }
     };
     
+    Action new_restaurant_action=new AbstractAction(){
+
+        public void actionPerformed(ActionEvent ae) {
+                addRestaurantMode();          
+                System.out.println("Nouveau Restaurant Créer avec succès !");
+            
+        }
+
+      
+   };
+    Action new_site_action=new AbstractAction(){
+
+        public void actionPerformed(ActionEvent e){
+                addSiteMode();
+                System.out.println("Nouveau Site Naturel a été créé !"); // pas obligatoire d'ajouter cette ligne de code
+            
+            }
+        
+    };
     // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     // ------------------------------------------------------------------------------------------------------------------
     void addCityMode(){
-        MySwingUtilities.setContentPane(ParentContent_panel, new CityPanel());
+        MySwingUtilities.setContentPane(main_panel, new CityPanel());
     }
     
     void addMapcontrolMode(){
-        MySwingUtilities.setContentPane(main_panel, new MapControlPanel());
+  MySwingUtilities.setContentPane(main_panel, new MapControl());
     }
-    
+    void addRestaurantMode(){
+        MySwingUtilities.setContentPane(main_panel, new RestaurantPanel());
+    }
+    void addSiteMode(){
+        MySwingUtilities.setContentPane(main_panel, new SiteNaturelPanel());
+    }
     // ------------------------------------------------------------------------------------------------------------------
 
     void enableDisableHyperlinks(boolean enableOrDisable){
@@ -128,6 +172,7 @@ public class MainForm extends javax.swing.JFrame {
         hymapcontrol.setEnabled(true);
         
         addCityMode(); //this will be replace by the default map mode
+        addRestaurantMode();
         
         jXTaskPaneContainer1.setVisible(true);
         
@@ -155,6 +200,8 @@ public class MainForm extends javax.swing.JFrame {
         jXtmapcontrol = new org.jdesktop.swingx.JXTaskPane();
         jXt_navigation = new org.jdesktop.swingx.JXTaskPane();
         jXtAdmin = new org.jdesktop.swingx.JXTaskPane();
+        jXt = new org.jdesktop.swingx.JXTaskPane();
+        jXtAdmin2 = new org.jdesktop.swingx.JXTaskPane();
         main_panel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -164,16 +211,21 @@ public class MainForm extends javax.swing.JFrame {
         jXTaskPaneContainer1.setLayout(verticalLayout1);
 
         jXtmapcontrol.setName("jxtaskpMapControl"); // NOI18N
-        jXtmapcontrol.setTitle("Map Control & Navigation");
         jXTaskPaneContainer1.add(jXtmapcontrol);
 
         jXt_navigation.setName("jxtaskpNavigation"); // NOI18N
-        jXt_navigation.setTitle("Current Navigation");
         jXTaskPaneContainer1.add(jXt_navigation);
 
         jXtAdmin.setName("jxtaskpAdmin"); // NOI18N
-        jXtAdmin.setTitle("Administration");
         jXTaskPaneContainer1.add(jXtAdmin);
+
+        jXt.setName("jxtaskpAdmin"); // NOI18N
+        jXTaskPaneContainer1.add(jXt);
+
+        jXtAdmin2.setName("jxtaskpAdmin"); // NOI18N
+        jXTaskPaneContainer1.add(jXtAdmin2);
+
+        main_panel.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout main_panelLayout = new javax.swing.GroupLayout(main_panel);
         main_panel.setLayout(main_panelLayout);
@@ -266,7 +318,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel ParentContent_panel;
     private org.jdesktop.swingx.JXHeader jXHeader1;
     private org.jdesktop.swingx.JXTaskPaneContainer jXTaskPaneContainer1;
+    private org.jdesktop.swingx.JXTaskPane jXt;
     private org.jdesktop.swingx.JXTaskPane jXtAdmin;
+    private org.jdesktop.swingx.JXTaskPane jXtAdmin2;
     private org.jdesktop.swingx.JXTaskPane jXt_navigation;
     private org.jdesktop.swingx.JXTaskPane jXtmapcontrol;
     private javax.swing.JPanel main_panel;
